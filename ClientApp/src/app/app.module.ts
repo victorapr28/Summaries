@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
@@ -25,17 +25,18 @@ import {NavMenuComponent} from './components/nav-menu/nav-menu.component';
     DeleteBookComponent
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
+    BrowserModule.withServerTransition({appId: 'ng-cli-universal'}),
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'books', component: BooksComponent},
-      { path: 'new-book', component: NewBookComponent},
-      { path: 'update-book/:id', component: UpdateBookComponent},
-      { path: 'delete-book/:id', component: DeleteBookComponent},
-      { path: 'show-book/:id', component: ShowBookComponent}
-    ])
+      {path: '', component: HomeComponent, pathMatch: 'full'},
+      {path: 'books', component: BooksComponent},
+      {path: 'new-book', component: NewBookComponent},
+      {path: 'update-book/:id', component: UpdateBookComponent},
+      {path: 'delete-book/:id', component: DeleteBookComponent},
+      {path: 'show-book/:id', component: ShowBookComponent}
+    ]),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
